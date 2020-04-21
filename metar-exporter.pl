@@ -61,10 +61,15 @@ sub getSensors() {
 			my $wmph = $m->WIND_MPH;
 			my $windDirection = $m->WIND_DIR_ABB;
 			my $measureVal = int($wmph * 1.60934);
+			# if ($printTimestamp) {
+				# $output .= "wind_speed{province=\"$province\",location=\"$location\",winddirection=\"$windDirection\",geohash=\"$geohash\"} $measureVal $timestamp\n";
+			# } else {
+				# $output .= "wind_speed{province=\"$province\",location=\"$location\",winddirection=\"$windDirection\",geohash=\"$geohash\"} $measureVal\n";
+			# }				
 			if ($printTimestamp) {
-				$output .= "wind_speed{province=\"$province\",location=\"$location\",winddirection=\"$windDirection\",geohash=\"$geohash\"} $measureVal $timestamp\n";
+				$output .= "wind_speed{province=\"$province\",location=\"$location\",geohash=\"$geohash\"} $measureVal $timestamp\n";
 			} else {
-				$output .= "wind_speed{province=\"$province\",location=\"$location\",winddirection=\"$windDirection\",geohash=\"$geohash\"} $measureVal\n";
+				$output .= "wind_speed{province=\"$province\",location=\"$location\",geohash=\"$geohash\"} $measureVal\n";
 			}	
 
 			#Temperature
